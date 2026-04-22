@@ -310,6 +310,70 @@ h1 span {
   gap: 20px;
 }
 
+.policy-layout {
+  padding-top: 24px;
+}
+
+.policy-hero h1 {
+  max-width: none;
+}
+
+.policy-card {
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+.policy-card h2 {
+  margin-top: 32px;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+}
+
+.policy-card h2:first-of-type {
+  margin-top: 0;
+}
+
+.policy-card p {
+  margin: 14px 0 0;
+  color: var(--gray-medium);
+  line-height: 1.75;
+}
+
+.policy-meta {
+  margin: 0 0 10px;
+  color: var(--gray-light);
+  font-size: 0.94rem;
+}
+
+.policy-list {
+  margin: 14px 0 0;
+  padding-left: 22px;
+  color: var(--gray-medium);
+  line-height: 1.75;
+}
+
+.inline-link {
+  color: var(--blue-primary);
+  font-weight: 700;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 34px 0 8px;
+  color: var(--gray-medium);
+  font-size: 0.95rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -348,6 +412,11 @@ h1 span {
   }
 
   .contact-card {
+    align-items: flex-start;
+  }
+
+  .site-footer {
+    flex-direction: column;
     align-items: flex-start;
   }
 }
