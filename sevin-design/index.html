@@ -33,7 +33,7 @@
         --line: rgba(63, 74, 72, 0.2);
         --soft-line: rgba(239, 238, 229, 0.3);
         --shadow: 0 28px 90px rgba(63, 74, 72, 0.16);
-        --hero-logo-offset: 42px;
+        --hero-logo-offset: 0px;
       }
 
       * {
@@ -79,11 +79,6 @@
         gap: 24px;
         min-height: 76px;
         padding: 14px clamp(20px, 5vw, 64px);
-        color: var(--ink);
-        transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
-      }
-
-      .topbar.is-solid {
         background: rgba(239, 238, 229, 0.94);
         border-bottom: 1px solid var(--line);
         color: var(--ink);
@@ -109,17 +104,12 @@
         display: grid;
         place-items: center;
         width: 128px;
-        transition: transform 180ms ease;
       }
 
       .brand img {
         width: 118px;
         mix-blend-mode: multiply;
         opacity: 0.9;
-      }
-
-      .topbar:not(.is-solid) .brand {
-        transform: translateY(var(--hero-logo-offset));
       }
 
       .button {
@@ -153,8 +143,7 @@
         color: var(--ivory);
       }
 
-      .topbar .button.light,
-      .topbar.is-solid .button.light {
+      .topbar .button.light {
         background: rgba(170, 178, 176, 0.92);
         color: var(--ink);
         border-color: rgba(63, 74, 72, 0.42);
@@ -570,10 +559,6 @@
 
         .brand img {
           width: 108px;
-        }
-
-        .topbar:not(.is-solid) .brand {
-          transform: none;
         }
 
         .nav:last-child a:not(.button) {
@@ -1028,12 +1013,5 @@
         <span>Interiors · Consulting</span>
       </footer>
     </div>
-
-    <script>
-      const nav = document.querySelector("[data-nav]");
-      const updateNav = () => nav.classList.toggle("is-solid", window.scrollY > 28);
-      updateNav();
-      window.addEventListener("scroll", updateNav, { passive: true });
-    </script>
   </body>
 </html>
