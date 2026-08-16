@@ -3,23 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sevin Design | Strategy, Identity, and Digital Systems</title>
+    <title>Sevin Design | Timeless Interiors & Consulting</title>
     <meta
       name="description"
-      content="A one-page website for Sevin Design, a design studio shaping brands, websites, and digital systems with clarity and craft."
+      content="Sevin Design is a Harbor Springs interior design studio creating timeless, tasteful interiors through personal service, trusted collaboration, and thoughtful detail."
     />
-    <link rel="preload" href="./sevin-hero.png" as="image" />
+    <meta property="og:title" content="Sevin Design | Timeless Interiors & Consulting" />
+    <meta
+      property="og:description"
+      content="Thoughtful residential interiors, renovation and new-construction consultation, furnishings, virtual design, and focused design guidance."
+    />
+    <meta property="og:image" content="https://www.productbuilder.agency/sevin-design/assets/sevin-interior-hero.jpg" />
+    <meta property="og:type" content="website" />
+    <link rel="preload" href="./assets/sevin-interior-hero.jpg" as="image" />
     <style>
       :root {
-        --ink: #101416;
-        --graphite: #22282a;
-        --paper: #f7f4ee;
-        --soft: #e7e0d3;
-        --teal: #10585b;
-        --aqua: #9fbdb7;
-        --vermilion: #d84a2b;
-        --line: rgba(16, 20, 22, 0.16);
-        --shadow: 0 22px 60px rgba(16, 20, 22, 0.18);
+        --paper: #f5eee7;
+        --ivory: #fffaf3;
+        --linen: #e8ded2;
+        --sand: #d5c5b5;
+        --mushroom: #9c8f84;
+        --taupe: #70665e;
+        --ink: #3d3732;
+        --olive: #5d664f;
+        --charcoal: #26231f;
+        --line: rgba(61, 55, 50, 0.18);
+        --soft-line: rgba(255, 250, 243, 0.28);
+        --shadow: 0 28px 90px rgba(61, 55, 50, 0.16);
       }
 
       * {
@@ -32,12 +42,12 @@
 
       body {
         margin: 0;
-        background: var(--paper);
+        background:
+          radial-gradient(circle at top left, rgba(255, 250, 243, 0.82), transparent 38rem),
+          var(--paper);
         color: var(--ink);
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-        line-height: 1.5;
+        font-family: "Times New Roman", Georgia, serif;
+        line-height: 1.65;
       }
 
       a {
@@ -50,67 +60,62 @@
         max-width: 100%;
       }
 
-      .site-shell {
+      .site {
         overflow: clip;
       }
 
-      .nav {
+      .topbar {
         position: fixed;
         z-index: 20;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: flex;
+        inset: 0 0 auto;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
         align-items: center;
-        justify-content: space-between;
         gap: 24px;
-        padding: 20px clamp(20px, 5vw, 64px);
-        color: var(--paper);
-        transition:
-          background 180ms ease,
-          color 180ms ease,
-          border-color 180ms ease;
+        min-height: 76px;
+        padding: 14px clamp(20px, 5vw, 64px);
+        color: var(--ivory);
+        transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
       }
 
-      .nav.is-solid {
-        background: rgba(247, 244, 238, 0.92);
-        border-bottom: 1px solid rgba(16, 20, 22, 0.1);
+      .topbar.is-solid {
+        background: rgba(245, 238, 231, 0.94);
+        border-bottom: 1px solid var(--line);
         color: var(--ink);
-        backdrop-filter: blur(16px);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(14px, 2vw, 28px);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .nav:last-child {
+        justify-content: flex-end;
       }
 
       .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 11px;
-        font-weight: 760;
-        letter-spacing: 0;
-      }
-
-      .brand-mark {
-        width: 34px;
-        height: 34px;
         display: grid;
         place-items: center;
-        border: 1px solid currentColor;
-        border-radius: 50%;
-        font-size: 14px;
+        width: 128px;
       }
 
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: clamp(14px, 2.2vw, 30px);
-        font-size: 14px;
-        font-weight: 650;
+      .brand img {
+        width: 118px;
+        mix-blend-mode: multiply;
+        opacity: 0.9;
       }
 
-      .nav-links a {
-        opacity: 0.82;
-      }
-
-      .nav-links a:hover {
-        opacity: 1;
+      .topbar:not(.is-solid) .brand img {
+        filter: brightness(0) invert(1);
+        mix-blend-mode: normal;
+        opacity: 0.88;
       }
 
       .button {
@@ -118,36 +123,30 @@
         min-height: 44px;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        border: 1px solid transparent;
-        border-radius: 999px;
+        border: 1px solid currentColor;
+        border-radius: 0;
         padding: 12px 20px;
-        font-weight: 750;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.13em;
         line-height: 1;
-        transition:
-          transform 160ms ease,
-          background 160ms ease,
-          color 160ms ease,
-          border-color 160ms ease;
+        text-transform: uppercase;
+        transition: transform 160ms ease, background 160ms ease, color 160ms ease;
       }
 
       .button:hover {
         transform: translateY(-1px);
       }
 
-      .button.primary {
-        background: var(--vermilion);
-        color: #fffaf4;
-      }
-
-      .button.secondary {
-        border-color: rgba(247, 244, 238, 0.58);
-        color: var(--paper);
-      }
-
       .button.dark {
         background: var(--ink);
-        color: var(--paper);
+        color: var(--ivory);
+        border-color: var(--ink);
+      }
+
+      .button.light {
+        color: var(--ivory);
       }
 
       .hero {
@@ -155,8 +154,8 @@
         min-height: 96svh;
         display: grid;
         align-items: end;
-        padding: 116px clamp(20px, 5vw, 64px) 42px;
-        color: var(--paper);
+        padding: 118px clamp(20px, 5vw, 64px) 44px;
+        color: var(--ivory);
         isolation: isolate;
       }
 
@@ -170,39 +169,32 @@
 
       .hero::before {
         background:
-          linear-gradient(90deg, rgba(9, 12, 13, 0.9), rgba(9, 12, 13, 0.28) 55%, rgba(9, 12, 13, 0.16)),
-          linear-gradient(0deg, rgba(9, 12, 13, 0.72), rgba(9, 12, 13, 0.04) 44%),
-          url("./sevin-hero.png") center / cover;
+          linear-gradient(90deg, rgba(38, 35, 31, 0.78), rgba(38, 35, 31, 0.24) 58%, rgba(38, 35, 31, 0.1)),
+          linear-gradient(0deg, rgba(38, 35, 31, 0.68), transparent 52%),
+          url("./assets/sevin-interior-hero.jpg") center / cover;
       }
 
       .hero::after {
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-        background-size: 48px 48px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 72%);
+        border: 1px solid rgba(255, 250, 243, 0.5);
+        inset: 28px;
+        opacity: 0.8;
       }
 
       .hero-content {
-        width: min(840px, 100%);
+        display: grid;
+        grid-template-columns: minmax(0, 760px) minmax(250px, 390px);
+        gap: clamp(32px, 8vw, 130px);
+        align-items: end;
+        width: min(1220px, 100%);
       }
 
       .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin: 0 0 20px;
-        color: rgba(247, 244, 238, 0.78);
-        font-size: 13px;
-        font-weight: 780;
+        margin: 0 0 18px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
-      }
-
-      .eyebrow::before {
-        width: 38px;
-        height: 2px;
-        background: var(--vermilion);
-        content: "";
       }
 
       h1,
@@ -213,577 +205,735 @@
       }
 
       h1 {
-        max-width: 780px;
-        margin-bottom: 24px;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(52px, 9vw, 118px);
-        font-weight: 500;
-        line-height: 0.92;
+        margin-bottom: 26px;
+        font-size: clamp(54px, 8vw, 118px);
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        line-height: 0.98;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin-bottom: 0;
+        font-size: clamp(38px, 5.5vw, 76px);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      h3 {
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 1.18;
       }
 
       .hero-copy {
         max-width: 650px;
         margin-bottom: 30px;
-        color: rgba(247, 244, 238, 0.82);
-        font-size: clamp(18px, 2.1vw, 24px);
+        color: rgba(255, 250, 243, 0.86);
+        font-size: clamp(19px, 2vw, 25px);
       }
 
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+      .hero-panel {
+        border: 1px solid var(--soft-line);
+        padding: 28px;
+        background: rgba(38, 35, 31, 0.38);
+        backdrop-filter: blur(14px);
       }
 
-      .hero-strip {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1px;
-        margin-top: 64px;
-        border: 1px solid rgba(247, 244, 238, 0.2);
-        background: rgba(247, 244, 238, 0.2);
-        width: min(920px, 100%);
-      }
-
-      .metric {
-        min-height: 116px;
-        padding: 22px;
-        background: rgba(16, 20, 22, 0.46);
-        backdrop-filter: blur(12px);
-      }
-
-      .metric strong {
-        display: block;
-        margin-bottom: 6px;
-        color: #fff;
-        font-size: clamp(24px, 3vw, 38px);
-        line-height: 1;
-      }
-
-      .metric span {
-        color: rgba(247, 244, 238, 0.72);
-        font-size: 14px;
-      }
-
-      main {
-        background: var(--paper);
+      .hero-panel p {
+        margin-bottom: 22px;
+        color: rgba(255, 250, 243, 0.82);
+        font-size: 17px;
       }
 
       .section {
-        padding: clamp(64px, 10vw, 124px) clamp(20px, 5vw, 64px);
+        padding: clamp(72px, 10vw, 132px) clamp(20px, 5vw, 64px);
       }
 
       .section.alt {
-        background: #ede8dd;
+        background: var(--ivory);
       }
 
       .section.dark {
-        background: var(--ink);
-        color: var(--paper);
+        background: var(--charcoal);
+        color: var(--ivory);
+      }
+
+      .section-inner {
+        width: min(1180px, 100%);
+        margin: 0 auto;
       }
 
       .section-head {
         display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
-        gap: clamp(28px, 6vw, 92px);
+        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.72fr);
+        gap: clamp(30px, 7vw, 104px);
         align-items: end;
-        max-width: 1180px;
-        margin: 0 auto 42px;
-      }
-
-      .section-kicker {
-        margin-bottom: 12px;
-        color: var(--teal);
-        font-size: 13px;
-        font-weight: 820;
-        text-transform: uppercase;
-      }
-
-      .dark .section-kicker {
-        color: var(--aqua);
-      }
-
-      h2 {
-        margin-bottom: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(36px, 5vw, 72px);
-        font-weight: 500;
-        line-height: 1;
+        margin-bottom: 48px;
       }
 
       .section-lede {
         margin-bottom: 0;
-        color: rgba(16, 20, 22, 0.68);
-        font-size: 18px;
+        color: rgba(61, 55, 50, 0.74);
+        font-size: 19px;
       }
 
-      .dark .section-lede {
-        color: rgba(247, 244, 238, 0.7);
+      .dark .section-lede,
+      .dark .muted {
+        color: rgba(255, 250, 243, 0.74);
       }
 
-      .services {
+      .mission {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: 0.62fr 1fr;
+        gap: clamp(34px, 8vw, 118px);
+        align-items: center;
+      }
+
+      .logo-card {
+        border: 1px solid var(--line);
+        padding: clamp(24px, 4vw, 48px);
+        background: rgba(255, 250, 243, 0.55);
+        box-shadow: var(--shadow);
+      }
+
+      .mission-copy {
+        font-size: clamp(22px, 2.5vw, 34px);
+        line-height: 1.36;
+      }
+
+      .mission-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         gap: 1px;
-        max-width: 1180px;
-        margin: 0 auto;
         border: 1px solid var(--line);
         background: var(--line);
       }
 
       .service {
-        min-height: 320px;
-        padding: clamp(24px, 3vw, 34px);
+        min-height: 300px;
+        padding: 28px;
         background: var(--paper);
       }
 
-      .service-number {
-        display: inline-grid;
-        place-items: center;
-        width: 42px;
-        height: 42px;
-        margin-bottom: 44px;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-        color: var(--teal);
-        font-weight: 800;
-      }
-
-      .service h3,
-      .project h3 {
-        margin-bottom: 16px;
-        font-size: 24px;
-        line-height: 1.1;
+      .service span,
+      .value span,
+      .step span {
+        display: block;
+        margin-bottom: 34px;
+        color: var(--mushroom);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
       }
 
       .service p,
-      .project p,
-      .process p {
-        color: rgba(16, 20, 22, 0.66);
+      .value p,
+      .step p,
+      .bio p,
+      .note p {
+        color: rgba(61, 55, 50, 0.72);
       }
 
-      .work-grid {
+      .value-grid {
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 24px;
-        max-width: 1180px;
-        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
       }
 
-      .project {
-        position: relative;
-        min-height: 420px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        overflow: hidden;
-        border-radius: 8px;
-        padding: 28px;
-        background: var(--graphite);
-        color: var(--paper);
-        box-shadow: var(--shadow);
+      .value {
+        min-height: 268px;
+        padding: 30px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
       }
 
-      .project::before {
-        position: absolute;
-        inset: 0;
-        content: "";
-        background:
-          linear-gradient(180deg, transparent, rgba(16, 20, 22, 0.86)),
-          var(--visual);
-        z-index: 0;
-      }
-
-      .project > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .project p {
-        color: rgba(247, 244, 238, 0.72);
-      }
-
-      .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 14px;
-      }
-
-      .project-tags span {
-        border: 1px solid rgba(247, 244, 238, 0.24);
-        border-radius: 999px;
-        padding: 6px 10px;
-        color: rgba(247, 244, 238, 0.76);
-        font-size: 12px;
-        font-weight: 700;
-      }
-
-      .project.identity {
-        --visual:
-          radial-gradient(circle at 20% 18%, rgba(216, 74, 43, 0.86), transparent 26%),
-          linear-gradient(135deg, #183f42, #111416 58%),
-          repeating-linear-gradient(90deg, rgba(255,255,255,.12) 0 1px, transparent 1px 80px);
-      }
-
-      .project.product {
-        --visual:
-          linear-gradient(110deg, rgba(159, 189, 183, 0.72), transparent 42%),
-          linear-gradient(135deg, #131719, #2f3532),
-          repeating-linear-gradient(0deg, rgba(255,255,255,.11) 0 1px, transparent 1px 64px);
-      }
-
-      .process-wrap {
+      .story-grid {
         display: grid;
-        grid-template-columns: 0.75fr 1fr;
-        gap: clamp(28px, 6vw, 82px);
-        max-width: 1180px;
-        margin: 0 auto;
+        grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+        gap: clamp(34px, 7vw, 96px);
         align-items: start;
       }
 
-      .process-note {
+      .portrait-card {
         position: sticky;
-        top: 100px;
-        border-left: 3px solid var(--vermilion);
-        padding-left: 22px;
-        color: rgba(16, 20, 22, 0.7);
+        top: 104px;
+        border: 1px solid var(--line);
+        padding: 18px;
+        background: var(--paper);
+      }
+
+      .portrait-card img {
+        aspect-ratio: 4 / 5;
+        width: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .caption {
+        margin: 18px 0 0;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .note {
+        padding-bottom: 42px;
+        border-bottom: 1px solid var(--line);
         font-size: 20px;
       }
 
-      .process-list {
-        display: grid;
-        gap: 1px;
-        border: 1px solid var(--line);
-        background: var(--line);
+      .signature {
+        margin-top: 28px;
+        color: var(--taupe);
+        font-size: 28px;
+      }
+
+      .bio {
+        padding-top: 42px;
       }
 
       .process {
         display: grid;
-        grid-template-columns: 82px 1fr;
-        gap: 20px;
-        padding: 26px;
-        background: #f9f6ef;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        border: 1px solid rgba(255, 250, 243, 0.22);
+        background: rgba(255, 250, 243, 0.22);
       }
 
-      .process b {
-        color: var(--teal);
+      .step {
+        min-height: 320px;
+        padding: 30px;
+        background: rgba(255, 250, 243, 0.05);
       }
 
-      .process h3 {
-        margin-bottom: 8px;
+      .step p,
+      .step span {
+        color: rgba(255, 250, 243, 0.72);
       }
 
-      .cta {
+      .journal-shop {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr 1fr;
         gap: 24px;
+      }
+
+      .tease {
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border: 1px solid var(--line);
+        padding: 30px;
+        background:
+          linear-gradient(180deg, transparent, rgba(61, 55, 50, 0.72)),
+          var(--bg);
+        background-size: cover;
+        background-position: center;
+        color: var(--ivory);
+      }
+
+      .tease:first-child {
+        --bg: url("./assets/sevin-interior-hero.jpg");
+      }
+
+      .tease:last-child {
+        --bg: url("./assets/sevin-card.jpg");
+      }
+
+      .tease p {
+        max-width: 460px;
+        margin-bottom: 0;
+        color: rgba(255, 250, 243, 0.78);
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.55fr);
+        gap: clamp(30px, 7vw, 94px);
         align-items: center;
-        max-width: 1180px;
-        margin: 0 auto;
       }
 
-      .cta h2 {
-        max-width: 780px;
+      .contact-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 30px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 13px;
+        font-weight: 650;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
       }
 
-      .cta p {
-        max-width: 620px;
-        margin: 20px 0 0;
-        color: rgba(247, 244, 238, 0.7);
-        font-size: 18px;
+      .contact-card {
+        border: 1px solid rgba(255, 250, 243, 0.24);
+        padding: clamp(24px, 4vw, 42px);
       }
 
-      footer {
+      .footer {
         display: flex;
         justify-content: space-between;
-        gap: 20px;
+        gap: 18px;
         padding: 26px clamp(20px, 5vw, 64px);
-        background: #0a0d0e;
-        color: rgba(247, 244, 238, 0.64);
-        font-size: 14px;
+        border-top: 1px solid var(--line);
+        color: var(--taupe);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
 
-      @media (max-width: 860px) {
-        .nav {
-          padding: 14px 18px;
+      @media (max-width: 980px) {
+        .topbar {
+          grid-template-columns: 1fr auto;
         }
 
-        .nav-links a:not(.button) {
+        .nav:first-child {
           display: none;
         }
 
-        .hero {
-          min-height: 92svh;
-          padding: 96px 20px 28px;
-        }
-
-        .hero::before {
-          background:
-            linear-gradient(180deg, rgba(9, 12, 13, 0.86), rgba(9, 12, 13, 0.4) 45%, rgba(9, 12, 13, 0.86)),
-            url("./sevin-hero.png") center / cover;
-        }
-
-        .hero-strip,
+        .hero-content,
         .section-head,
-        .services,
-        .work-grid,
-        .process-wrap,
-        .cta {
+        .mission,
+        .story-grid,
+        .contact {
           grid-template-columns: 1fr;
         }
 
-        .hero-strip {
-          margin-top: 42px;
-        }
-
-        .metric {
-          min-height: 94px;
-        }
-
-        .service {
-          min-height: auto;
-        }
-
-        .service-number {
-          margin-bottom: 28px;
-        }
-
-        .project {
-          min-height: 360px;
-        }
-
-        .process-note {
-          position: static;
-        }
-
+        .services-grid,
         .process {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
         }
 
-        .cta .button {
-          justify-self: start;
+        .value-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
 
-        footer {
-          flex-direction: column;
+        .portrait-card {
+          position: static;
+          max-width: 520px;
         }
       }
 
-      @media (max-width: 520px) {
-        .brand span:last-child {
+      @media (max-width: 680px) {
+        .topbar {
+          min-height: 68px;
+          padding: 10px 18px;
+        }
+
+        .brand {
+          width: 92px;
+          justify-self: start;
+        }
+
+        .brand img {
+          width: 86px;
+        }
+
+        .nav:last-child a:not(.button) {
           display: none;
         }
 
         .button {
-          width: 100%;
+          min-height: 40px;
+          padding: 11px 14px;
+          font-size: 11px;
         }
 
-        .nav .button {
-          width: auto;
-          min-height: 38px;
-          padding: 10px 14px;
+        .hero {
+          min-height: 92svh;
+          padding: 94px 20px 26px;
+        }
+
+        .hero::after {
+          inset: 14px;
         }
 
         h1 {
-          font-size: clamp(46px, 17vw, 64px);
+          font-size: clamp(42px, 14vw, 64px);
+        }
+
+        .services-grid,
+        .value-grid,
+        .process,
+        .journal-shop {
+          grid-template-columns: 1fr;
+        }
+
+        .service,
+        .value,
+        .step {
+          min-height: auto;
+        }
+
+        .footer {
+          flex-direction: column;
         }
       }
     </style>
   </head>
   <body>
-    <div class="site-shell">
-      <header class="nav" data-nav>
-        <a class="brand" href="#top" aria-label="Sevin Design home">
-          <span class="brand-mark">S7</span>
-          <span>Sevin Design</span>
-        </a>
-        <nav class="nav-links" aria-label="Primary navigation">
+    <div class="site">
+      <header class="topbar" data-nav>
+        <nav class="nav" aria-label="Primary navigation left">
+          <a href="#mission">Mission</a>
           <a href="#services">Services</a>
-          <a href="#work">Work</a>
+          <a href="#values">Values</a>
+        </nav>
+        <a class="brand" href="#top" aria-label="Sevin Design home">
+          <img src="./assets/sevin-logo.jpg" alt="Sevin Design" />
+        </a>
+        <nav class="nav" aria-label="Primary navigation right">
+          <a href="#sarah">Sarah</a>
           <a href="#process">Process</a>
-          <a class="button primary" href="mailto:hello@sevindesign.com">Start a Project</a>
+          <a class="button light" href="#contact">Inquire</a>
         </nav>
       </header>
 
-      <section class="hero" id="top">
-        <div class="hero-content">
-          <p class="eyebrow">Strategy, identity, digital systems</p>
-          <h1>Design that makes the next move obvious.</h1>
-          <p class="hero-copy">
-            Sevin Design helps ambitious teams turn scattered ideas into brands,
-            websites, and product experiences that feel clear, useful, and built
-            to last.
-          </p>
-          <div class="hero-actions" aria-label="Project actions">
-            <a class="button primary" href="#contact">Plan the Work</a>
-            <a class="button secondary" href="#work">View Selected Work</a>
-          </div>
-        </div>
-        <div class="hero-strip" aria-label="Studio highlights">
-          <div class="metric">
-            <strong>01</strong>
-            <span>Positioning sharp enough to guide real decisions.</span>
-          </div>
-          <div class="metric">
-            <strong>02</strong>
-            <span>Visual systems that hold together across every touchpoint.</span>
-          </div>
-          <div class="metric">
-            <strong>03</strong>
-            <span>Websites and interfaces designed for everyday use.</span>
-          </div>
-        </div>
-      </section>
-
-      <main>
-        <section class="section" id="services">
-          <div class="section-head">
+      <main id="top">
+        <section class="hero">
+          <div class="hero-content">
             <div>
-              <p class="section-kicker">What We Shape</p>
-              <h2>From first impression to working system.</h2>
+              <p class="eyebrow">Harbor Springs Interior Design</p>
+              <h1>Timeless interiors, thoughtfully personal.</h1>
+              <p class="hero-copy">
+                Sevin Design creates refined, welcoming homes through attentive
+                listening, trusted collaboration, and an unwavering attention to
+                the details that make a home feel entirely your own.
+              </p>
+              <a class="button light" href="#mission">Explore the Studio</a>
             </div>
-            <p class="section-lede">
-              Good design is not decoration at the end. It is the operating
-              logic that helps people understand what matters, where to go, and
-              why to trust you.
-            </p>
-          </div>
-          <div class="services">
-            <article class="service">
-              <span class="service-number">1</span>
-              <h3>Brand Strategy</h3>
+            <aside class="hero-panel" aria-label="Sevin Design introduction">
               <p>
-                Naming, positioning, messaging, and decision frameworks for
-                teams who need a sharper point of view before they scale.
+                Interiors & consulting for single rooms, renovations, new
+                construction, furnishings, procurement, virtual design, and
+                focused design guidance.
               </p>
-            </article>
-            <article class="service">
-              <span class="service-number">2</span>
-              <h3>Identity Systems</h3>
-              <p>
-                Logos, type, color, art direction, and flexible rules that make
-                every launch, deck, and campaign feel unmistakably connected.
-              </p>
-            </article>
-            <article class="service">
-              <span class="service-number">3</span>
-              <h3>Web and Product</h3>
-              <p>
-                High-performing marketing sites, interface foundations, and
-                product screens that bring the brand into the daily workflow.
-              </p>
-            </article>
+              <a class="button light" href="mailto:hello@sevindesign.com">hello@sevindesign.com</a>
+            </aside>
           </div>
         </section>
 
-        <section class="section alt" id="work">
-          <div class="section-head">
-            <div>
-              <p class="section-kicker">Selected Work</p>
-              <h2>Built for teams with momentum.</h2>
+        <section class="section" id="mission">
+          <div class="section-inner mission">
+            <div class="logo-card">
+              <img src="./assets/sevin-logo.jpg" alt="Sevin Design Interiors and Consulting" />
             </div>
-            <p class="section-lede">
-              A concise look at the kind of outcomes Sevin Design creates:
-              clearer offers, stronger market presence, and digital experiences
-              that are easier to ship and maintain.
-            </p>
-          </div>
-          <div class="work-grid">
-            <article class="project identity">
-              <h3>Northline Studio</h3>
+            <div class="mission-copy">
               <p>
-                A focused identity and launch site for an architecture practice
-                moving from referrals into regional visibility.
+                Sevin Design creates timeless, tasteful interiors that are
+                thoughtfully tailored to the people who live in them.
               </p>
-              <div class="project-tags">
-                <span>Positioning</span>
-                <span>Identity</span>
-                <span>Website</span>
-              </div>
-            </article>
-            <article class="project product">
-              <h3>Ledgerway</h3>
               <p>
-                A product interface refresh that turned dense financial tools
-                into a calmer system for repeat daily work.
+                Through personal service, trusted collaboration, and exceptional
+                care, we bring beauty, function, and enduring character to every
+                home.
               </p>
-              <div class="project-tags">
-                <span>UX</span>
-                <span>Design System</span>
-                <span>Dashboard</span>
-              </div>
-            </article>
+            </div>
           </div>
         </section>
 
-        <section class="section" id="process">
-          <div class="process-wrap">
-            <p class="process-note">
-              The work is structured, but never mechanical. Each phase produces
-              decisions the team can use immediately.
-            </p>
-            <div class="process-list">
-              <article class="process">
-                <b>Discover</b>
-                <div>
-                  <h3>Map the real problem.</h3>
-                  <p>
-                    Interviews, audits, and fast synthesis reveal what the
-                    brand or product must make easier for its audience.
-                  </p>
-                </div>
+        <section class="section alt" id="services">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Services</p>
+                <h2>Considered guidance for every way a home comes together.</h2>
+              </div>
+              <p class="section-lede">
+                From a single room to a ground-up residence, Sevin Design brings
+                clarity, organization, and discernment to the decisions that
+                shape how a home looks, feels, and functions.
+              </p>
+            </div>
+            <div class="services-grid">
+              <article class="service">
+                <span>01</span>
+                <h3>Full-Service Interiors</h3>
+                <p>
+                  Complete design direction, sourcing, specifications,
+                  procurement, and installation oversight for layered,
+                  residential interiors.
+                </p>
               </article>
-              <article class="process">
-                <b>Define</b>
-                <div>
-                  <h3>Turn insight into a usable direction.</h3>
-                  <p>
-                    Strategy, voice, hierarchy, and visual principles become
-                    clear enough for everyone to make better choices.
-                  </p>
-                </div>
+              <article class="service">
+                <span>02</span>
+                <h3>Renovation & New Construction</h3>
+                <p>
+                  Finish selections, layouts, cabinetry details, lighting,
+                  material palettes, and collaboration with builders and trades.
+                </p>
               </article>
-              <article class="process">
-                <b>Design</b>
-                <div>
-                  <h3>Build the system, not just the screen.</h3>
-                  <p>
-                    The final work includes the page, component, and brand
-                    patterns that keep quality high after handoff.
-                  </p>
-                </div>
+              <article class="service">
+                <span>03</span>
+                <h3>Furnishings & Procurement</h3>
+                <p>
+                  Furniture, textiles, lighting, accessories, custom pieces, and
+                  vendor coordination for spaces that feel collected over time.
+                </p>
+              </article>
+              <article class="service">
+                <span>04</span>
+                <h3>Consultations & Virtual Design</h3>
+                <p>
+                  Focused design guidance for clients seeking experienced,
+                  thoughtful direction before making important home decisions.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="values">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Core Values</p>
+                <h2>Luxury is also how the experience feels.</h2>
+              </div>
+              <p class="section-lede">
+                A well-designed home begins with trust. These values guide the
+                way Sarah listens, recommends, communicates, and protects the
+                integrity of each project.
+              </p>
+            </div>
+            <div class="value-grid">
+              <article class="value">
+                <span>Listening First</span>
+                <h3>Understanding before direction.</h3>
+                <p>
+                  We learn how you live, what you value, and how you want your
+                  home to feel so every decision is meaningful.
+                </p>
+              </article>
+              <article class="value">
+                <span>Personal Design</span>
+                <h3>Never formulaic.</h3>
+                <p>
+                  Each interior balances architectural character, personal
+                  history, everyday function, and enduring style.
+                </p>
+              </article>
+              <article class="value">
+                <span>Communication</span>
+                <h3>Organized and understandable.</h3>
+                <p>
+                  Clients receive thoughtful guidance and clear updates
+                  throughout each stage of the design process.
+                </p>
+              </article>
+              <article class="value">
+                <span>Collaboration</span>
+                <h3>A cohesive vision, well executed.</h3>
+                <p>
+                  Architects, builders, craftspeople, vendors, and trades are
+                  brought into the work with purpose and care.
+                </p>
+              </article>
+              <article class="value">
+                <span>Integrity</span>
+                <h3>Honesty in every detail.</h3>
+                <p>
+                  Recommendations, investments, and project choices are made
+                  with the client’s best interests at the center.
+                </p>
+              </article>
+              <article class="value">
+                <span>Service</span>
+                <h3>Attentive from start to installation.</h3>
+                <p>
+                  Sevin Design stays closely involved, responsive, and committed
+                  to a thoughtful experience as much as a beautiful result.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section alt" id="sarah">
+          <div class="section-inner story-grid">
+            <aside class="portrait-card">
+              <img src="./assets/sevin-card.jpg" alt="Sevin Design business card artwork" />
+              <p class="caption">Est. 2026 · Interiors · Consulting</p>
+            </aside>
+            <div>
+              <article class="note">
+                <p class="eyebrow">A Note from Sarah</p>
+                <h2>Homes are defined by the people who live within them.</h2>
+                <p>
+                  A thoughtfully designed home should feel collected rather than
+                  manufactured, polished without being overly formal, and
+                  beautiful while still supporting everyday life.
+                </p>
+                <p>
+                  I founded Sevin Design to provide clients with a more personal
+                  and attentive design experience; one built upon trust,
+                  thoughtful communication, and an appreciation for the details
+                  that give a home lasting character.
+                </p>
+                <p>
+                  My role is to listen carefully, recognize possibilities,
+                  anticipate challenges, and bring clarity to the many decisions
+                  involved in creating a home.
+                </p>
+                <p class="signature">Sarah Sevin</p>
+              </article>
+              <article class="bio">
+                <p class="eyebrow">Meet Sarah</p>
+                <h2>Founder & Principal Designer</h2>
+                <p>
+                  Sarah Sevin is the founder and principal designer of Sevin
+                  Design, a Northern Michigan interior design studio
+                  specializing in thoughtful, timeless residential interiors.
+                </p>
+                <p>
+                  Educated at Harrington College of Design in Chicago, Sarah
+                  brings a practiced eye for proportion, material, color, and
+                  composition to every project. Her approach combines refined
+                  design with an understanding of how homes must function in
+                  everyday life.
+                </p>
+                <p>
+                  Based in Harbor Springs, Sevin Design serves clients
+                  throughout Northern Michigan and beyond.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section dark" id="process">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">What to Expect</p>
+                <h2>A clear framework for a deeply personal process.</h2>
+              </div>
+              <p class="section-lede">
+                Every project begins with a conversation and moves forward with
+                a considered design direction, careful selections, organized
+                details, and close involvement as the work becomes real.
+              </p>
+            </div>
+            <div class="process">
+              <article class="step">
+                <span>01 · Conversation</span>
+                <h3>We begin by listening.</h3>
+                <p>
+                  We discuss your home, lifestyle, aesthetic preferences,
+                  practical needs, investment parameters, and vision.
+                </p>
+              </article>
+              <article class="step">
+                <span>02 · Direction</span>
+                <h3>We establish the design framework.</h3>
+                <p>
+                  Space plans, furniture layouts, finishes, lighting, cabinetry,
+                  textiles, and custom elements are considered as one whole.
+                </p>
+              </article>
+              <article class="step">
+                <span>03 · Details</span>
+                <h3>We organize what carries the vision forward.</h3>
+                <p>
+                  Specifications, schedules, procurement, site meetings, order
+                  management, delivery coordination, and installation oversight.
+                </p>
+              </article>
+              <article class="step">
+                <span>04 · Home</span>
+                <h3>The result feels complete.</h3>
+                <p>
+                  More than a beautiful interior, the finished home feels
+                  deeply considered and authentically connected to the people
+                  who live there.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section alt">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Journal & Shop</p>
+                <h2>Room stories, project notes, and collected objects.</h2>
+              </div>
+              <p class="section-lede">
+                As the studio grows, this space can expand into house tours,
+                design notes, accessories, and one-of-a-kind finds selected with
+                the same point of view.
+              </p>
+            </div>
+            <div class="journal-shop">
+              <article class="tease">
+                <p class="eyebrow">Future Journal</p>
+                <h3>House tours and project details with a personal point of view.</h3>
+                <p>
+                  A natural home for finished projects, renovation stories,
+                  sourcing notes, and the design thinking behind a room.
+                </p>
+              </article>
+              <article class="tease">
+                <p class="eyebrow">Future Collection</p>
+                <h3>Accessories and distinctive pieces for beautiful living.</h3>
+                <p>
+                  A future retail layer for objects, textiles, and unique finds
+                  that support the Sevin Design aesthetic.
+                </p>
               </article>
             </div>
           </div>
         </section>
 
         <section class="section dark" id="contact">
-          <div class="cta">
+          <div class="section-inner contact">
             <div>
-              <p class="section-kicker">Start Here</p>
-              <h2>Bring the fuzzy thing. We will make it workable.</h2>
-              <p>
-                Tell us what is changing, what feels stuck, and what needs to be
-                true when the work is done.
+              <p class="eyebrow">Inquiries</p>
+              <h2>Your home should tell your story beautifully.</h2>
+              <p class="section-lede">
+                Tell us where you are in the process, what kind of guidance you
+                need, and what you hope your home will feel like when the work
+                is complete.
               </p>
+              <div class="contact-list">
+                <a href="mailto:hello@sevindesign.com">hello@sevindesign.com</a>
+                <a href="tel:+12317586565">231-758-6565</a>
+                <a href="https://www.instagram.com/sevindesign">@sevindesign</a>
+              </div>
             </div>
-            <a class="button primary" href="mailto:hello@sevindesign.com">hello@sevindesign.com</a>
+            <aside class="contact-card">
+              <p class="eyebrow">Based in Harbor Springs</p>
+              <p class="muted">
+                Serving clients throughout Northern Michigan and beyond with
+                residential interiors, consulting, and personal design guidance.
+              </p>
+              <a class="button light" href="mailto:hello@sevindesign.com">Begin a Conversation</a>
+            </aside>
           </div>
         </section>
       </main>
 
-      <footer>
-        <span>Sevin Design</span>
-        <span>Strategy, identity, and digital systems</span>
+      <footer class="footer">
+        <span>Sevin Design · Estd 2026</span>
+        <span>Interiors · Consulting</span>
       </footer>
     </div>
 
     <script>
       const nav = document.querySelector("[data-nav]");
-      const updateNav = () => {
-        nav.classList.toggle("is-solid", window.scrollY > 24);
-      };
-
+      const updateNav = () => nav.classList.toggle("is-solid", window.scrollY > 28);
       updateNav();
       window.addEventListener("scroll", updateNav, { passive: true });
     </script>
