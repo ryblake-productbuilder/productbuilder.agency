@@ -29,6 +29,7 @@
         --line: rgba(61, 55, 50, 0.18);
         --soft-line: rgba(255, 250, 243, 0.28);
         --shadow: 0 28px 90px rgba(61, 55, 50, 0.16);
+        --hero-logo-offset: 42px;
       }
 
       * {
@@ -103,12 +104,17 @@
         display: grid;
         place-items: center;
         width: 128px;
+        transition: transform 180ms ease;
       }
 
       .brand img {
         width: 118px;
         mix-blend-mode: multiply;
         opacity: 0.9;
+      }
+
+      .topbar:not(.is-solid) .brand {
+        transform: translateY(var(--hero-logo-offset));
       }
 
       .button {
@@ -142,12 +148,19 @@
         color: var(--ivory);
       }
 
+      .topbar .button.light,
+      .topbar.is-solid .button.light {
+        background: rgba(232, 222, 210, 0.92);
+        color: var(--ink);
+        border-color: rgba(61, 55, 50, 0.42);
+      }
+
       .hero {
         position: relative;
-        min-height: 96svh;
+        min-height: calc(96svh + var(--hero-logo-offset));
         display: grid;
         align-items: end;
-        padding: 118px clamp(20px, 5vw, 64px) 44px;
+        padding: calc(118px + var(--hero-logo-offset)) clamp(20px, 5vw, 64px) 44px;
         color: var(--ink);
         isolation: isolate;
       }
@@ -246,6 +259,7 @@
 
       .section {
         padding: clamp(72px, 10vw, 132px) clamp(20px, 5vw, 64px);
+        scroll-margin-top: 112px;
       }
 
       .section.alt {
@@ -527,6 +541,10 @@
       }
 
       @media (max-width: 680px) {
+        :root {
+          --hero-logo-offset: 34px;
+        }
+
         .topbar {
           min-height: 68px;
           padding: 10px 18px;
@@ -552,8 +570,12 @@
         }
 
         .hero {
-          min-height: 92svh;
-          padding: 94px 20px 26px;
+          min-height: calc(92svh + var(--hero-logo-offset));
+          padding: calc(94px + var(--hero-logo-offset)) 20px 26px;
+        }
+
+        .section {
+          scroll-margin-top: 84px;
         }
 
         .hero::after {
@@ -589,7 +611,7 @@
         <nav class="nav" aria-label="Primary navigation left">
           <a href="#mission">Mission</a>
           <a href="#services">Services</a>
-          <a href="#values">Values</a>
+          <a href="#values">Core Values</a>
         </nav>
         <a class="brand" href="#top" aria-label="Sevin Design home">
           <img src="./assets/sevin-logo.jpg" alt="Sevin Design" />
@@ -636,9 +658,9 @@
                 thoughtfully tailored to the people who live in them.
               </p>
               <p>
-                Through personal service, trusted collaboration, and exceptional
-                care, we bring beauty, function, and enduring character to every
-                home.
+                Through attentive listening, trusted collaboration, and a highly
+                personalized approach, we bring beauty, function, and enduring
+                character to every home.
               </p>
             </div>
           </div>
@@ -765,7 +787,6 @@
           <div class="section-inner story-grid">
             <aside class="portrait-card">
               <img src="./assets/sevin-card.jpg" alt="Sevin Design business card artwork" />
-              <p class="caption">Est. 2026 · Interiors · Consulting</p>
             </aside>
             <div>
               <article class="note">
@@ -882,7 +903,7 @@
           </div>
         </section>
 
-        <section class="section alt">
+        <section class="section alt" hidden>
           <div class="section-inner">
             <div class="section-head">
               <div>
