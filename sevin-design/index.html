@@ -48,6 +48,7 @@
         color: var(--ink);
         font-family: "Times New Roman", Georgia, serif;
         line-height: 1.65;
+        overflow-x: hidden;
       }
 
       a {
@@ -490,6 +491,10 @@
         text-transform: uppercase;
       }
 
+      .contact-list a {
+        overflow-wrap: anywhere;
+      }
+
       .contact-card {
         border: 1px solid rgba(255, 250, 243, 0.24);
         padding: clamp(24px, 4vw, 42px);
@@ -542,21 +547,29 @@
 
       @media (max-width: 680px) {
         :root {
-          --hero-logo-offset: 34px;
+          --hero-logo-offset: 0px;
         }
 
         .topbar {
-          min-height: 68px;
-          padding: 10px 18px;
+          grid-template-columns: minmax(0, 1fr) auto;
+          min-height: 82px;
+          padding: 12px 18px;
+          background: rgba(245, 238, 231, 0.92);
+          border-bottom: 1px solid var(--line);
+          backdrop-filter: blur(16px);
         }
 
         .brand {
-          width: 92px;
+          width: 116px;
           justify-self: start;
         }
 
         .brand img {
-          width: 86px;
+          width: 108px;
+        }
+
+        .topbar:not(.is-solid) .brand {
+          transform: none;
         }
 
         .nav:last-child a:not(.button) {
@@ -570,20 +583,39 @@
         }
 
         .hero {
-          min-height: calc(92svh + var(--hero-logo-offset));
-          padding: calc(94px + var(--hero-logo-offset)) 20px 26px;
+          min-height: auto;
+          padding: 148px 20px 34px;
         }
 
         .section {
-          scroll-margin-top: 84px;
+          scroll-margin-top: 96px;
+          padding: 64px 20px;
         }
 
         .hero::after {
-          inset: 14px;
+          inset: 12px;
         }
 
         h1 {
-          font-size: clamp(42px, 14vw, 64px);
+          font-size: clamp(39px, 11.5vw, 54px);
+          letter-spacing: 0.035em;
+          overflow-wrap: anywhere;
+        }
+
+        h2 {
+          font-size: clamp(34px, 10vw, 48px);
+        }
+
+        .hero-content {
+          gap: 28px;
+        }
+
+        .hero-panel {
+          padding: 22px;
+        }
+
+        .mission-copy {
+          font-size: clamp(21px, 6vw, 29px);
         }
 
         .services-grid,
@@ -597,6 +629,17 @@
         .value,
         .step {
           min-height: auto;
+          padding: 24px;
+        }
+
+        .portrait-card {
+          max-width: none;
+          padding: 12px;
+        }
+
+        .contact-list {
+          font-size: 12px;
+          letter-spacing: 0.07em;
         }
 
         .footer {
